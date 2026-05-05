@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | MokuMoku</title>
-  <meta name="description" content="Submit bug reports or feature requests here. Messages reach the developer directly. Please select a category, enter your name, email, and message.">
-  <meta name="keywords" content="Contact,サポート,Bug report,機能要望">
+  <meta name="description" content="バグの報告やFeatureのご要望はこちらから内容は開発者本人まで届きますカテゴリ選択、Name、Email、Messageを送信してください">
+  <meta name="keywords" content="Contact,サポート,Bug report,Feature要望">
   <meta name="author" content="MokuMoku">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://mokumoku.example/en/contact.html">
@@ -13,7 +13,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact | MokuMoku">
-  <meta property="og:description" content="Submit bug reports or feature requests here. Messages reach the developer directly. Please select a category, enter your name, email, and message.">
+  <meta property="og:description" content="バグの報告やFeatureのご要望はこちらから内容は開発者本人まで届きますカテゴリ選択、Name、Email、Messageを送信してください">
   <meta property="og:url" content="https://mokumoku.example/en/contact.html">
   <meta property="og:image" content="https://mokumoku.example/images/icon.jpg">
   <meta property="og:site_name" content="MokuMoku">
@@ -22,7 +22,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact | MokuMoku">
-  <meta name="twitter:description" content="Submit bug reports or feature requests here. Messages reach the developer directly. Please select a category, enter your name, email, and message.">
+  <meta name="twitter:description" content="バグの報告やFeatureのご要望はこちらから内容は開発者本人まで届きますカテゴリ選択、Name、Email、Messageを送信してください">
   <meta name="twitter:image" content="https://mokumoku.example/images/icon.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,7 +84,7 @@
 <section class="page-hero">
       <div class="container">
         <h1 class="page-hero-title">Contact</h1>
-        <p class="page-hero-sub">— バグの報告や機能のご要望はこちらからお送り下さい</p>
+        <p class="page-hero-sub">— Submit bug reports or feature requests here.</p>
       </div>
     </section>
 
@@ -93,7 +93,7 @@
         <div class="form-container">
 
           <div class="form-panel" id="contact-panel">
-            <h2 class="panel-title">Messageを送る</h2>
+            <h2 class="panel-title">Send a message</h2>
 
             <!--
               ===== Formspree セットアップ手順 =====
@@ -132,7 +132,7 @@
               </div>
 
               <div class="field-group">
-                <label for="category">Contactの種類 <span class="required">*</span></label>
+                <label for="category">Inquiry type <span class="required">*</span></label>
                 <select id="category" name="category" required>
                   <option value="">Please select</option>
                   <option value="bug">Bug report</option>
@@ -155,8 +155,8 @@
           <div class="result-panel" id="thanks-panel" hidden>
             <div class="result-icon">✅</div>
             <h2 class="result-title">Sent!</h2>
-            <p class="result-sub">Contact有難う御座います！<br>We'll review and get back to you.</p>
-            <a href="index.html" class="btn-ghost" data-page="home">Homeページへ戻る</a>
+            <p class="result-sub">Thank you for your message!<br>We'll review and respond.</p>
+            <a href="index.html" class="btn-ghost" data-page="home">Back to home</a>
           </div>
 
         </div>
@@ -187,10 +187,33 @@
     </nav>
     <p class="footer-copy">
       &copy; 2026 MokuMoku. All rights reserved.
+      <span class="visitor-counter" aria-label="visitor count">
+        <span class="vc-label">visitors</span>
+        <span class="vc-num" id="visitor-count">—</span>
+      </span>
     </p>
   </div>
 </footer>
 
 <script src="../app.js"></script>
+
+<!-- counter.dev トラッキング (root と同じ Site ID を使用) -->
+<script src="https://cdn.counter.dev/script.js" data-id="YOUR_SITE_ID" data-utcoffset="9"></script>
+<script>
+(function() {
+  const SITE_ID = 'YOUR_SITE_ID';
+  const counterEl = document.getElementById('visitor-count');
+  if (!counterEl || SITE_ID === 'YOUR_SITE_ID') return;
+  fetch('https://counter.dev/track?id=' + SITE_ID + '&stats=1')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (data && typeof data.visits === 'number') {
+        counterEl.textContent = data.visits.toLocaleString();
+      }
+    })
+    .catch(() => {});
+})();
+</script>
+
 </body>
 </html>

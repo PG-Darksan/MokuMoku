@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Features — Gemini / OpenAI / Anthropic | MokuMoku</title>
-  <meta name="description" content="トピックを伝えるだけで AI がマップを自動生成網羅モード・Translation, summary, related videos・ファイル要約までGemini / OpenAI / Anthropic から選べる BYOK 方式">
+  <meta name="description" content="トピックを伝えるだけで AI がマップを自動生成網羅モード・Translation, summary, related videos・File summarizationまでGemini / OpenAI / Anthropic  — choose your favorite. BYOK 方式">
   <meta name="keywords" content="AI マインドマップ,自動生成,Gemini,OpenAI,Claude,Anthropic,翻訳,要約,網羅モード">
   <meta name="author" content="MokuMoku">
   <meta name="robots" content="index, follow">
@@ -13,7 +13,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="AI Features — Gemini / OpenAI / Anthropic | MokuMoku">
-  <meta property="og:description" content="トピックを伝えるだけで AI がマップを自動生成網羅モード・Translation, summary, related videos・ファイル要約までGemini / OpenAI / Anthropic から選べる BYOK 方式">
+  <meta property="og:description" content="トピックを伝えるだけで AI がマップを自動生成網羅モード・Translation, summary, related videos・File summarizationまでGemini / OpenAI / Anthropic  — choose your favorite. BYOK 方式">
   <meta property="og:url" content="https://mokumoku.example/en/ai.html">
   <meta property="og:image" content="https://mokumoku.example/images/icon.jpg">
   <meta property="og:site_name" content="MokuMoku">
@@ -22,7 +22,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AI Features — Gemini / OpenAI / Anthropic | MokuMoku">
-  <meta name="twitter:description" content="トピックを伝えるだけで AI がマップを自動生成網羅モード・Translation, summary, related videos・ファイル要約までGemini / OpenAI / Anthropic から選べる BYOK 方式">
+  <meta name="twitter:description" content="トピックを伝えるだけで AI がマップを自動生成網羅モード・Translation, summary, related videos・File summarizationまでGemini / OpenAI / Anthropic  — choose your favorite. BYOK 方式">
   <meta name="twitter:image" content="https://mokumoku.example/images/icon.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -153,7 +153,7 @@
           <h2 class="fd-title" style="margin-bottom:12px;">右クリックで、 ノードを変身させる</h2>
           <p class="fd-desc" style="max-width:720px;">
             ノードを右クリックすると、 AI を使った各種オペレーションがその場で呼び出せます
-            全てノードのテキストを引数として動作
+            全てノードのテキストを引数としてAction
           </p>
         </div>
 
@@ -185,7 +185,7 @@
         </div>
       </section>
 
-      <!-- ファイル要約 -->
+      <!-- File summarization -->
       <section class="feature-detail-section">
         <div class="feature-detail-block">
           <div class="fd-left">
@@ -200,7 +200,7 @@
               <li><span><b>網羅モード連携</b>: ファイル全文を分割処理して、 漏れなくマップ化</span></li>
               <li><span><b>添付したファイルはノードに紐付く</b>: 元ファイルへの参照を保持</span></li>
               <li><span><b>大きなファイルも分割処理</b>: 内部でチャンク化して網羅</span></li>
-              <li><span><b>Max Pricingで利用可能</b>: 月 $19.99 で利用可能</span></li>
+              <li><span><b>Max Pricing available.</b>: 月 $19.99  available.</span></li>
             </ul>
           </div>
           <div class="fd-right">
@@ -220,7 +220,7 @@
             <div class="fd-eyebrow">— 05 / Bring Your Own Key</div>
             <h2 class="fd-title">AI モデルは、 あなたの選択</h2>
             <p class="fd-desc">
-              <b>Gemini / OpenAI / Anthropic</b> の 3 系統に対応 自分の API キーを
+              <b>Gemini / OpenAI / Anthropic</b> の 3 系統に対応 自分の API Keyを
               アプリに登録するので、 利用料はそのまま AI ベンダーに支払う仕組みです
               MokuMoku 側は AI 費用の上乗せなし
             </p>
@@ -228,7 +228,7 @@
               <li><span><b>Gemini</b>: 無料枠が広い、 デフォルト推奨</span></li>
               <li><span><b>OpenAI</b>: gpt-4o-mini など好みのモデルを指定可</span></li>
               <li><span><b>Anthropic</b>: claude-haiku-4-5 等の Claude モデルを利用可</span></li>
-              <li><span><b>キーはローカル保存</b>: 端末外には送信せず、 設定画面でいつでも変更</span></li>
+              <li><span><b>Keyはローカル保存</b>: 端末外には送信せず、 設定画面でいつでも変更</span></li>
             </ul>
           </div>
           <div class="fd-right">
@@ -280,10 +280,33 @@
     </nav>
     <p class="footer-copy">
       &copy; 2026 MokuMoku. All rights reserved.
+      <span class="visitor-counter" aria-label="visitor count">
+        <span class="vc-label">visitors</span>
+        <span class="vc-num" id="visitor-count">—</span>
+      </span>
     </p>
   </div>
 </footer>
 
 <script src="../app.js"></script>
+
+<!-- counter.dev トラッキング (root と同じ Site ID を使用) -->
+<script src="https://cdn.counter.dev/script.js" data-id="YOUR_SITE_ID" data-utcoffset="9"></script>
+<script>
+(function() {
+  const SITE_ID = 'YOUR_SITE_ID';
+  const counterEl = document.getElementById('visitor-count');
+  if (!counterEl || SITE_ID === 'YOUR_SITE_ID') return;
+  fetch('https://counter.dev/track?id=' + SITE_ID + '&stats=1')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (data && typeof data.visits === 'number') {
+        counterEl.textContent = data.visits.toLocaleString();
+      }
+    })
+    .catch(() => {});
+})();
+</script>
+
 </body>
 </html>

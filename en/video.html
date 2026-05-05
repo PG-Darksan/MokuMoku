@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube Video Hub — PiP / Fast playback / Background play | MokuMoku</title>
-  <meta name="description" content="Paste a YouTube URL to create a video node. Picture-in-picture player, ultra-fast playback, background play, channel video queue, auto-fetch related videos — viewing experience redesigned.">
+  <title>Video Hub — PiP / Fast Play / Background | MokuMoku</title>
+  <meta name="description" content="YouTube URL を貼るだけで動画ノード化ピクチャ・イン・ピクチャ プレイヤー、 通常を超える高速再生、 バックグラウンド再生、 チャンネル動画キュー、 関連動画自動取得で視聴体験を再設計">
   <meta name="keywords" content="YouTube プレイヤー,PiP,ピクチャインピクチャ,バックグラウンド再生,高速再生,チャンネルキュー">
   <meta name="author" content="MokuMoku">
   <meta name="robots" content="index, follow">
@@ -12,8 +12,8 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="YouTube Video Hub — PiP / Fast playback / Background play | MokuMoku">
-  <meta property="og:description" content="Paste a YouTube URL to create a video node. Picture-in-picture player, ultra-fast playback, background play, channel video queue, auto-fetch related videos — viewing experience redesigned.">
+  <meta property="og:title" content="Video Hub — PiP / Fast Play / Background | MokuMoku">
+  <meta property="og:description" content="YouTube URL を貼るだけで動画ノード化ピクチャ・イン・ピクチャ プレイヤー、 通常を超える高速再生、 バックグラウンド再生、 チャンネル動画キュー、 関連動画自動取得で視聴体験を再設計">
   <meta property="og:url" content="https://mokumoku.example/en/video.html">
   <meta property="og:image" content="https://mokumoku.example/images/icon.jpg">
   <meta property="og:site_name" content="MokuMoku">
@@ -21,8 +21,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="YouTube Video Hub — PiP / Fast playback / Background play | MokuMoku">
-  <meta name="twitter:description" content="Paste a YouTube URL to create a video node. Picture-in-picture player, ultra-fast playback, background play, channel video queue, auto-fetch related videos — viewing experience redesigned.">
+  <meta name="twitter:title" content="Video Hub — PiP / Fast Play / Background | MokuMoku">
+  <meta name="twitter:description" content="YouTube URL を貼るだけで動画ノード化ピクチャ・イン・ピクチャ プレイヤー、 通常を超える高速再生、 バックグラウンド再生、 チャンネル動画キュー、 関連動画自動取得で視聴体験を再設計">
   <meta name="twitter:image" content="https://mokumoku.example/images/icon.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,7 +132,7 @@
               <li><span><b>左下ハンドルでリサイズ</b>: 0.5x〜2.0x、 画面サイズに自動キャップ</span></li>
               <li><span><b>ダブルタップで初期サイズに戻る</b>: ドラッグでサイズが行き過ぎても安心</span></li>
               <li><span><b>中央タップで停止/再生</b>: タップ操作とドラッグ移動が両立</span></li>
-              <li><span><b>畳み機能</b>: ヘッダーだけ残して動画は裏で動かしっぱなし</span></li>
+              <li><span><b>畳みFeature</b>: ヘッダーだけ残して動画は裏で動かしっぱなし</span></li>
             </ul>
           </div>
           <div class="fd-right">
@@ -218,10 +218,10 @@
             <p class="fd-desc">
               ノードを右クリック → <b>「関連動画を取得」</b> で、 そのノードのテキストを
               YouTube で検索した上位 5 件を子ノードとして配置
-              キーワードを起点に、 動画リサーチを枝分かれに展開できます
+              Keyワードを起点に、 動画リサーチを枝分かれに展開できます
             </p>
             <ul class="fd-points">
-              <li><span>API キー不要 (公開 HTML をパース)</span></li>
+              <li><span>API Key不要 (公開 HTML をパース)</span></li>
               <li><span>マップ内の既存動画とは重複しない</span></li>
               <li><span>サムネイルも自動取得</span></li>
               <li><span>YouTube ノード以外の <b>テキストノード</b> でも使える</span></li>
@@ -278,10 +278,33 @@
     </nav>
     <p class="footer-copy">
       &copy; 2026 MokuMoku. All rights reserved.
+      <span class="visitor-counter" aria-label="visitor count">
+        <span class="vc-label">visitors</span>
+        <span class="vc-num" id="visitor-count">—</span>
+      </span>
     </p>
   </div>
 </footer>
 
 <script src="../app.js"></script>
+
+<!-- counter.dev トラッキング (root と同じ Site ID を使用) -->
+<script src="https://cdn.counter.dev/script.js" data-id="YOUR_SITE_ID" data-utcoffset="9"></script>
+<script>
+(function() {
+  const SITE_ID = 'YOUR_SITE_ID';
+  const counterEl = document.getElementById('visitor-count');
+  if (!counterEl || SITE_ID === 'YOUR_SITE_ID') return;
+  fetch('https://counter.dev/track?id=' + SITE_ID + '&stats=1')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (data && typeof data.visits === 'number') {
+        counterEl.textContent = data.visits.toLocaleString();
+      }
+    })
+    .catch(() => {});
+})();
+</script>
+
 </body>
 </html>

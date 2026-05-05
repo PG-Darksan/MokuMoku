@@ -267,10 +267,33 @@
     </nav>
     <p class="footer-copy">
       &copy; 2026 MokuMoku. 모든 권리 보유.
+      <span class="visitor-counter" aria-label="visitor count">
+        <span class="vc-label">방문자</span>
+        <span class="vc-num" id="visitor-count">—</span>
+      </span>
     </p>
   </div>
 </footer>
 
 <script src="../app.js"></script>
+
+<!-- counter.dev トラッキング (root と同じ Site ID を使用) -->
+<script src="https://cdn.counter.dev/script.js" data-id="YOUR_SITE_ID" data-utcoffset="9"></script>
+<script>
+(function() {
+  const SITE_ID = 'YOUR_SITE_ID';
+  const counterEl = document.getElementById('visitor-count');
+  if (!counterEl || SITE_ID === 'YOUR_SITE_ID') return;
+  fetch('https://counter.dev/track?id=' + SITE_ID + '&stats=1')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (data && typeof data.visits === 'number') {
+        counterEl.textContent = data.visits.toLocaleString();
+      }
+    })
+    .catch(() => {});
+})();
+</script>
+
 </body>
 </html>
