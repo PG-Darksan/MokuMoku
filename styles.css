@@ -376,11 +376,28 @@
         hero-icon-emerge 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both,
         hero-icon-float 5s ease-in-out 1.5s infinite;
       will-change: transform, opacity, filter;
+      transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* ── ホバー時にふわっと持ち上がる ──
+       transform で持ち上げ、 box-shadow を強めて高さを表現。
+       継続フロートは translate プロパティを使っているので、
+       transform で上書きしても衝突せず併存して動く。 */
+    .hero-block.hero-main .hero-icon:hover,
+    .hero-block.hero-main .hero-icon-fallback:hover {
+      transform: translateY(-14px) scale(1.05);
+      box-shadow: 0 40px 80px -16px rgba(26, 24, 21, 0.32);
     }
     @media (prefers-reduced-motion: reduce) {
       .hero-block.hero-main .hero-icon,
       .hero-block.hero-main .hero-icon-fallback {
         animation: none;
+        transition: none;
+      }
+      .hero-block.hero-main .hero-icon:hover,
+      .hero-block.hero-main .hero-icon-fallback:hover {
+        transform: none;
       }
     }
 
