@@ -99,6 +99,7 @@
       padding: 10px 22px; border-radius: 100px;
       transition: all 0.25s ease;
       border: 1px solid var(--ink);
+      order: 1;
     }
     .nav-cta:hover {
       background: var(--vermillion);
@@ -111,6 +112,7 @@
     .lang-switcher {
       position: relative;
       margin-right: 4px;
+      order: 2;
     }
     .lang-toggle {
       background: transparent;
@@ -1772,21 +1774,23 @@
       .feature-matrix thead th,
       .feature-matrix tbody td { padding: 10px 8px; }
     }
-    /* ===== 超小型端末: ナビをアイコンのみに ===== */
-    @media (max-width: 520px) {
+    /* ===== モバイル: ナビをアイコンのみに (CTA も含む) ===== */
+    @media (max-width: 640px) {
       nav { padding: 12px 12px; }
       .nav-links { gap: 2px; }
-      .nav-link:not(.nav-cta) {
+      .nav-link {
         font-size: 0;
         gap: 0;
         padding: 8px 6px;
       }
-      .nav-link:not(.nav-cta)::before {
+      .nav-link::before {
         width: 18px;
         height: 18px;
       }
-      /* CTA はラベル残す (タップ目標として重要) */
-      .nav-cta { font-size: 11px; padding: 7px 11px; }
+      /* CTA は小さな黒い丸ピルとして残す (アイコンのみ) */
+      .nav-cta {
+        padding: 9px 11px;
+      }
       /* 言語切替も詰める */
       .lang-switcher .lang-toggle { padding: 6px 10px; font-size: 11px; }
     }
